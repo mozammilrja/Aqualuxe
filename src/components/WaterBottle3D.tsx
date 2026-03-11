@@ -177,7 +177,6 @@ function WaterBottle({ isDragging }: { isDragging: boolean }) {
           color={colors.accent}
           anchorX="center"
           anchorY="middle"
-          font="/fonts/inter-bold.woff"
           letterSpacing={0.08}
         >
           AQUALUXE
@@ -278,17 +277,16 @@ export default function WaterBottle3D({ mousePosition }: { mousePosition: { x: n
     <div className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing">
       <Canvas
         camera={{ position: [0, 0.5, 5.5], fov: 40 }}
-        dpr={[1, 1.5]} // Reduced max DPR for performance
-        frameloop="demand" // Only render when needed
+        dpr={[1, 1.5]}
+        frameloop="always"
         gl={{ 
-          antialias: false, // Disable antialiasing for better performance
+          antialias: true,
           alpha: true,
           powerPreference: "high-performance",
           stencil: false,
           depth: true,
         }}
         style={{ background: "transparent" }}
-        performance={{ min: 0.5 }} // Allow frame rate reduction
       >
         <Scene />
       </Canvas>
