@@ -2,7 +2,7 @@
 
 import { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Float, Environment, MeshTransmissionMaterial, OrbitControls } from "@react-three/drei";
+import { Float, Environment, MeshTransmissionMaterial, OrbitControls, Text } from "@react-three/drei";
 import * as THREE from "three";
 import { colors } from "@/lib/theme";
 
@@ -168,6 +168,47 @@ function WaterBottle({ isDragging }: { isDragging: boolean }) {
             />
           </mesh>
         ))}
+
+        {/* Brand Name - Aqualuxe */}
+        <Text
+          position={[0, 1.5, 1.42]}
+          rotation={[0, 0, 0]}
+          fontSize={0.28}
+          color={colors.accent}
+          anchorX="center"
+          anchorY="middle"
+          font="/fonts/inter-bold.woff"
+          letterSpacing={0.08}
+        >
+          AQUALUXE
+          <meshStandardMaterial
+            color={colors.accent}
+            emissive={colors.accent}
+            emissiveIntensity={0.3}
+            metalness={0.8}
+            roughness={0.2}
+          />
+        </Text>
+
+        {/* Brand Tagline */}
+        <Text
+          position={[0, 1.15, 1.42]}
+          rotation={[0, 0, 0]}
+          fontSize={0.1}
+          color="#ffffff"
+          anchorX="center"
+          anchorY="middle"
+          letterSpacing={0.15}
+        >
+          PURE WATER
+          <meshStandardMaterial
+            color="#ffffff"
+            emissive="#ffffff"
+            emissiveIntensity={0.15}
+            transparent
+            opacity={0.9}
+          />
+        </Text>
       </group>
     </Float>
   );
